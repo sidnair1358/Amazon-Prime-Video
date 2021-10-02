@@ -1,0 +1,1 @@
+This is a full stack project using the tmdb api to populate a Postgres database hosted on Heroku. The front end is built using React which will be deployed on Netlify and the backend will be built using Express in Node and deployed on Heroku.  
