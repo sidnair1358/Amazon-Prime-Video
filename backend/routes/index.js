@@ -1,9 +1,15 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
+const { getAllPopularMovies } = require("../models/movies");
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+router.get("/", async function (req, res) {
+  const response = await getAllPopularMovies();
+  res.json({
+    success: true,
+    message: `Got all movies`,
+    payload: response,
+  });
 });
 
 module.exports = router;
