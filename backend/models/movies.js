@@ -28,7 +28,7 @@ async function addReview(review, title, show) {
   );
   return data.rows;
 }
-async function deleteReview(review, title, show) {
+async function deleteReview(review, title) {
   const data = await query(
     `DELETE FROM popularMovies SET reviews = $1 WHERE title = '${title} RETURNING *;`,
     [review]
