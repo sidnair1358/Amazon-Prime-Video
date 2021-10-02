@@ -2,12 +2,10 @@ const { query } = require("../db/index");
 
 async function getAllPopularMovies() {
   const data = await query(`SELECT * FROM popularMovies`);
-  console.log(data.rows);
   return data.rows;
 }
 async function getAllTopRatedMovies() {
   const data = await query(`SELECT * FROM topRatedMovies`);
-  console.log(data.rows);
   return data.rows;
 }
 async function getAllPopularTVShows() {
@@ -17,27 +15,33 @@ async function getAllPopularTVShows() {
 }
 async function getAllTopRatedTVShows() {
   const data = await query(`SELECT * FROM topRatedTV`);
-  console.log(data.rows);
   return data.rows;
 }
 
-async function addReview(review, title, show) {
-  const data = await query(
-    `UPDATE popularMovies SET reviews = $1 WHERE title = '${title} RETURNING *;`,
+// async function addReview(review, title) {
+//   const data = await query(
+//     `UPDATE popularMovies SET reviews = $1 WHERE title = '${title}' RETURNING *;`,
+//     [review]
+//   );
+//   return data.rows;
+// }
+async function addReview(title, review) {
+  const reviews = await query(
+    `UPDATE popularMovies SET reviews = $1 WHERE title = '${title}' RETURNING *;`,
     [review]
+  );
+  return reviews.rows;
+}
+
+async function deleteReview(title) {
+  const data = await query(
+    `DELETE FROM popularMovies WHERE title = '${title}' RETURNING *;`
   );
   return data.rows;
 }
-async function deleteReview(review, title) {
+async function editReview(review, title) {
   const data = await query(
-    `DELETE FROM popularMovies SET reviews = $1 WHERE title = '${title} RETURNING *;`,
-    [review]
-  );
-  return data.rows;
-}
-async function editReview(review, title, show) {
-  const data = await query(
-    `UPDATE popularMovies SET reviews = $1 WHERE title = '${title} RETURNING *;`,
+    `UPDATE popularMovies SET reviews = $1 WHERE title = '${title}' RETURNING *;`,
     [review]
   );
   return data.rows;

@@ -11,7 +11,7 @@ const {
 } = require("../models/movies");
 
 /* GET home page. */
-router.get("/popularmovies", async function (req, res) {
+router.get("/popularmovies", async (req, res) => {
   const response = await getAllPopularMovies();
   res.json({
     success: true,
@@ -19,7 +19,7 @@ router.get("/popularmovies", async function (req, res) {
     payload: response,
   });
 });
-router.get("/topratedmovies", async function (req, res) {
+router.get("/topratedmovies", async (req, res) => {
   const response = await getAllTopRatedMovies();
   res.json({
     success: true,
@@ -27,7 +27,7 @@ router.get("/topratedmovies", async function (req, res) {
     payload: response,
   });
 });
-router.get("/populartv", async function (req, res) {
+router.get("/populartv", async (req, res) => {
   const response = await getAllPopularTVShows();
   res.json({
     success: true,
@@ -35,7 +35,7 @@ router.get("/populartv", async function (req, res) {
     payload: response,
   });
 });
-router.get("/topratedmovies", async function (req, res) {
+router.get("/topratedmovies", async (req, res) => {
   const response = await getAllTopRatedTVShows();
   res.json({
     success: true,
@@ -44,10 +44,38 @@ router.get("/topratedmovies", async function (req, res) {
   });
 });
 
-router.post("/reviews", async function (req, res)){
-  const {title, review} = req.body
-}
-
-
+// router.post("/reviews", async (req, res) => {
+//   const { title, review } = req.body;
+//   console.log(title, review);
+//   const response = await addReview(title, review);
+//   res.json({
+//     success: true,
+//     message: `Added review`,
+//     payload: response,
+//   });
+// });
+router.post("/reviews", async (req, res) => {
+  const { title, review } = req.body;
+  const response = await addReview(title, review);
+  res.json({
+    success: true,
+    message: `Added review`,
+    payload: response,
+  });
+});
 
 module.exports = router;
+
+// recipesRouter.use(express.json());
+
+// recipesRouter.post("/", (req, res) => {
+//   console.log(`${req.body.title} recipe added.`);
+//   addRecipe(
+//     req.body.title,
+//     req.body.ingredients,
+//     req.body.instructions,
+//     req.body.image
+//   );
+//   res.statusCode = 200;
+//   res.end(JSON.stringify({ success: true }));
+// });
