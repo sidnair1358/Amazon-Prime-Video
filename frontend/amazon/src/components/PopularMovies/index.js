@@ -1,28 +1,19 @@
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 import DisplayData from "../DisplayData";
+import RenderData from "../RenderData";
+import useFetch from "../useFetch";
 
 const PopularMovies = () => {
-  const [data, setData] = useState(null);
-  const [isPending, setIsPending] = useState(true);
-
-  useEffect(() => {
-    setTimeout(() => {
-      fetch("http://localhost:3000/shows/popularmovies")
-        .then((res) => {
-          return res.json();
-        })
-        .then((data) => {
-          setData(data.payload);
-          setIsPending(false);
-        });
-    }, 1000);
-  }, []);
-
+  const { data, isPending, error } = useFetch(
+    "http://localhost:3000/shows/popularmovies"
+  );
   return (
-    <div className="popularMovies">
-      {isPending && <div>Loading ...</div>}
-      {data && <DisplayData data={data} />}
-    </div>
+    <RenderData
+      data={data}
+      isPending={isPending}
+      error={error}
+      DisplayData={DisplayData}
+    />
   );
 };
 
