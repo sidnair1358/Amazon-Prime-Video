@@ -7,7 +7,6 @@ const {
   getAllTopRatedTVShows,
   addReview,
   editReview,
-  deleteReview,
 } = require("../models/movies");
 
 /* GET home page. */
@@ -60,6 +59,16 @@ router.post("/reviews", async (req, res) => {
   res.json({
     success: true,
     message: `Added review`,
+    payload: response,
+  });
+});
+
+router.patch("/reviews", async (req, res) => {
+  const { title, review } = req.body;
+  const response = await editReview(title, review);
+  res.json({
+    success: true,
+    message: "Review edited successfully",
     payload: response,
   });
 });

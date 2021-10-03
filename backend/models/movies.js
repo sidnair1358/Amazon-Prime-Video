@@ -33,13 +33,7 @@ async function addReview(title, review) {
   return reviews.rows;
 }
 
-async function deleteReview(title) {
-  const data = await query(
-    `DELETE FROM popularMovies WHERE title = '${title}' RETURNING *;`
-  );
-  return data.rows;
-}
-async function editReview(review, title) {
+async function editReview(title, review) {
   const data = await query(
     `UPDATE popularMovies SET reviews = $1 WHERE title = '${title}' RETURNING *;`,
     [review]
@@ -54,5 +48,4 @@ module.exports = {
   getAllTopRatedTVShows,
   addReview,
   editReview,
-  deleteReview,
 };
