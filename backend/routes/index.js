@@ -34,7 +34,7 @@ router.get("/populartv", async (req, res) => {
     payload: response,
   });
 });
-router.get("/topratedmovies", async (req, res) => {
+router.get("/topratedtv", async (req, res) => {
   const response = await getAllTopRatedTVShows();
   res.json({
     success: true,
