@@ -3,9 +3,9 @@ import DisplayData from "../DisplayData";
 import RenderData from "../RenderData";
 import useFetch from "../useFetch";
 
-const PopularMovies = ({ title }) => {
+const TopRatedMovies = ({ title }) => {
   const { data, isPending, error } = useFetch(
-    "http://localhost:3000/shows/popularmovies"
+    "http://localhost:3000/shows/topratedmovies"
   );
   return (
     <>
@@ -20,4 +20,4 @@ const PopularMovies = ({ title }) => {
   );
 };
 
-export default PopularMovies;
+export default TopRatedMovies;
