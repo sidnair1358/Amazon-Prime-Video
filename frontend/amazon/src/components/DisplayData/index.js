@@ -1,6 +1,6 @@
 const DisplayData = ({ data }) => {
   return (
-    <div className="data-list">
+    <div className="data-list" style={{ display: "flex" }}>
       {data.map((movie) => (
         <div key={movie.id}>
           <img src={movie.poster_path} alt="movie poster" />

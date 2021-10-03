@@ -74,17 +74,3 @@ router.patch("/reviews", async (req, res) => {
 });
 
 module.exports = router;
-
-// recipesRouter.use(express.json());
-
-// recipesRouter.post("/", (req, res) => {
-//   console.log(`${req.body.title} recipe added.`);
-//   addRecipe(
-//     req.body.title,
-//     req.body.ingredients,
-//     req.body.instructions,
-//     req.body.image
-//   );
-//   res.statusCode = 200;
-//   res.end(JSON.stringify({ success: true }));
-// });
