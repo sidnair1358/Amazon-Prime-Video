@@ -3,14 +3,18 @@ body {
   color: whitesmoke;
 }
 
-.card {
-  margin: 20px 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: 100px;
-}
+/* .card {
+  border-radius: 30px;
+  background: violet;
+} */
 
-.movieInfo {
+/* Doesnt work .movieInfo {
   height: 200px;
+  border-radius: 50px;
+  background: violet;
+} */
+
+img {
+  border-radius: 5px;
+  margin: 20px;
 }

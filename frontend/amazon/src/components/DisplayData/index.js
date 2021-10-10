@@ -16,7 +16,7 @@ const DisplayData = ({ data, handleHover }) => {
     },
     {
       width: 1500,
-      itemsToShow: 5,
+      itemsToShow: 4,
     },
   ];
   return (
