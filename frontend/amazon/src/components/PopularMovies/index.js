@@ -5,7 +5,9 @@ import useFetch from "../useFetch";
 
 const PopularMovies = ({ title }) => {
   const [name, setName] = useState("");
-  const [overview, setOverview] = useState("");
+  const [overview, setOverview] = useState(
+    "Hover over a movie to get the overview"
+  );
   const { data, isPending, error } = useFetch(
     "http://localhost:3000/shows/popularmovies"
   );
@@ -13,11 +15,14 @@ const PopularMovies = ({ title }) => {
     setName(name);
     setOverview(overview);
   };
+
   return (
     <>
-      <h1>{name}</h1>
-      <h2>{overview}</h2>
-      <h3>{title}</h3>
+      <div className="movieInfo">
+        <h1>{name}</h1>
+        <h2>{overview}</h2>
+        <h3>{title}</h3>
+      </div>
       <RenderData
         data={data}
         isPending={isPending}
