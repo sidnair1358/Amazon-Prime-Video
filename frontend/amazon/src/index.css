@@ -7,12 +7,10 @@ body {
   border-radius: 30px;
   background: violet;
 } */
-
-/* Doesnt work .movieInfo {
+.movieInfo {
   height: 200px;
   border-radius: 50px;
-  background: violet;
-} */
+}
 
 img {
   border-radius: 5px;

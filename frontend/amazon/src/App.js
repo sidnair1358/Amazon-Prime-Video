@@ -1,6 +1,7 @@
 import "./App.css";
 import useFetch from "./components/useFetch";
 import Card from "./components/Card";
+import Slide from "./components/Slide";
 
 function App() {
   const {

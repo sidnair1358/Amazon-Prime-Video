@@ -1,4 +1,5 @@
 import Carousel from "react-elastic-carousel";
+import Slide from "../Slide";
 
 const DisplayData = ({ data, handleHover }) => {
   const breakPoints = [
@@ -32,6 +33,7 @@ const DisplayData = ({ data, handleHover }) => {
           </div>
         ))}
       </Carousel>
+      <Slide data={data} />
     </div>
   );
 };

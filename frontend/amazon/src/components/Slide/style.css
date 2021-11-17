@@ -1,0 +1,14 @@
+.carousel-wrapper {
+  overflow: hidden;
+  width: 90%;
+  background-color: aqua;
+  display: flex;
+}
+
+.carousel-wrapper * {
+  box-sizing: border-box;
+}
+
+/* .carousel {
+  transform-style: preserve-3d;
+} */
